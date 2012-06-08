@@ -1,0 +1,1 @@
+alias gco='git checkout'

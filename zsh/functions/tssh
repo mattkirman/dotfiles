@@ -1,0 +1,10 @@
+# Connect to a remote server and attach to an existing tmux session.
+# To log out of the server just detach tmux.
+tssh () {
+  if [ -z $1 ]
+  then
+    echo "Usage: tssh HOST"
+  else
+    ssh $1 -t tmux attach
+  fi
+}
