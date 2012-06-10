@@ -1,6 +1,13 @@
 local user_host='%n@%m'
+local root_prompt='%{$fg_bold[red]%}!!%{$reset_color%}'
 
 PROMPT='%{$fg[blue]%}${user_host} %{$fg_bold[green]%}%{$reset_color%}%c %{$fg[green]%}$(git_prompt_info)%{$reset_color%}→ % %{$reset_color%}'
+
+if [[ $EUID -eq 0 ]]
+then
+  # Apply a warning when working as root
+  PROMPT="$PROMPT$root_prompt "
+fi
 
 function rvm_gemset {
   if [ -f ~/.rvm/bin/rvm-prompt ]
