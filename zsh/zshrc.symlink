@@ -32,6 +32,8 @@ then
   source ~/.zshrc.local
 fi
 
+if [[ -s ~/.rvm/scripts/rvm ]] ; then source ~/.rvm/scripts/rvm ; fi
+
 # Initialize autocomplete here otherwise functions won't be loaded
 autoload -U compinit
 compinit
