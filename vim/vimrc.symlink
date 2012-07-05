@@ -96,6 +96,8 @@ set laststatus=2
 
 " NERDTree configuration
 let NERDTreeIgnore=['\.rbc$', '\~$']
+let NERDTreeMinimalUI=1
+let NERDTreeDirArrows=1
 map <Leader>n :NERDTreeToggle<CR>
 
 " Command-T configuration
