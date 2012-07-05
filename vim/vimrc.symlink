@@ -186,6 +186,7 @@ set directory=~/.vim/backup
 
 " Split windows
 nnoremap <leader>w <C-w>v<C-w>l
+nnoremap <leader>W :split<CR><C-w>j
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
