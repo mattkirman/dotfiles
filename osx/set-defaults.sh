@@ -19,3 +19,7 @@ defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true
 
 # Show the ~/Library folder
 chflags nohidden ~/Library
+
+# Remove shadows from screenshots
+defaults write com.apple.screencapture disable-shadow -bool true
+killall SystemUIServer
