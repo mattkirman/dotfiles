@@ -10,7 +10,8 @@ Inspired by [holman/dotfiles](https://github.com/holman/dotfiles).
 ## Installation
 
 * `git clone git://github.com/mattkirman/dotfiles` - this can be
-  anywhere in your home directory (I keep mine in `~/Dropbox`)
+  anywhere in your home directory (I keep mine in `~/Dropbox` for those
+  rare occasions where I've got Dropbox access but no Git)
 * `cd dotfiles`
 * `rake install`
 
@@ -21,9 +22,11 @@ within this directory though.
 ## Components
 
 * **topic/*.zsh**: Any files ending in `.zsh` get loaded into your
-  environment.
+  zsh environment.
 * **topic/*.symlink**: Any files ending in `*.symlink` get symlinked
   into your `$HOME`. These get symlinked when you run `rake install`.
+  You're given the option to back up or skip symlinks if a conf file
+  already exists.
 * **topic/*.completion.sh**: Any files ending in `completion.sh` get
   loaded as autocomplete functions.
 
@@ -34,4 +37,8 @@ within this directory though.
   rvm installed the current ruby and gemset will show up in the right
   prompt.
 * If you have [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
-  installed then we will load it.
+  installed then that's loaded as well.
+
+## Commands
+
+* `tssh HOST` - Open a remote tmux session on HOST
