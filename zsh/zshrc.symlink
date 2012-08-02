@@ -1,6 +1,5 @@
 # Use oh-my-zsh if it's available
-if [[ -a ~/.oh-my-zsh ]]
-then
+if [[ -a ~/.oh-my-zsh ]]; then
   # Path to your oh-my-zsh configuration
   export ZSH=$HOME/.oh-my-zsh
 
@@ -27,19 +26,20 @@ export DOTFILES_DIR=$(dirname $(dirname "$(readlink ~/.zshrc)"))
 for config_file ($DOTFILES_DIR/**/*.zsh) source $config_file
 
 # Use .zshrc.local for things that you don't want in your public repo
-if [[ -a ~/.zshrc.local ]]
-then
+if [[ -a ~/.zshrc.local ]]; then
   source ~/.zshrc.local
 fi
 
-if [[ -s ~/.rvm/scripts/rvm ]] ; then source ~/.rvm/scripts/rvm ; fi
+# Load rvm if it's available
+if [[ -s ~/.rvm/scripts/rvm ]]; then
+  source ~/.rvm/scripts/rvm
+fi
 
 # Initialize autocomplete here otherwise functions won't be loaded
 autoload -U compinit
 compinit
 
 # Load every completion after autocomplete loads
-if [[ -f $DOTFILES_DIR/**/completion.sh ]]
-then
+if [[ -f $DOTFILES_DIR/**/completion.sh ]]; then
   for config_file ($DOTFILES_DIR/**/completion.sh) source $config_file
 fi
