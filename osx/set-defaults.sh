@@ -22,4 +22,10 @@ chflags nohidden ~/Library
 
 # Remove shadows from screenshots
 defaults write com.apple.screencapture disable-shadow -bool true
+
+# Disable the Dashboard
+defaults write com.apple.dashboard mcx-disabled -bool true
+
+# Restart effected services
+killall Dock
 killall SystemUIServer
