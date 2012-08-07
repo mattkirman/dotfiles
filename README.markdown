@@ -39,6 +39,8 @@ within this directory though.
 * If you have [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
   installed then that's loaded as well.
 
-## Commands
+## ZSH Functions
 
 * `tssh HOST` - Open a remote tmux session on HOST
+* `extract ARCHIVE` - Extracts an archive using the correct command
+  based on the file extension
