@@ -14,6 +14,6 @@ extract () {
       *)            echo "'$1' cannot be extracted via extract()";;
     esac
   else
-    echo "'$1' is not a vliad file"
+    echo "'$1' is not a valid file"
   fi
 }
