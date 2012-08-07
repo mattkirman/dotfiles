@@ -22,6 +22,9 @@ fi
 # Discover our dotfiles directory path
 export DOTFILES_DIR=$(dirname $(dirname "$(readlink ~/.zshrc)"))
 
+# Source every zsh functions file
+for function_file ($DOTFILES_DIR/zsh/functions/*) source $function_file
+
 # Source every .zsh file in this repository
 for config_file ($DOTFILES_DIR/**/*.zsh) source $config_file
 
