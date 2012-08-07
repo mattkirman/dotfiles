@@ -19,6 +19,9 @@ if [[ -a ~/.oh-my-zsh ]]; then
   source $ZSH/oh-my-zsh.sh
 fi
 
+# Prepend locals to the path
+export PATH=/usr/local/bin:$PATH
+
 # Discover our dotfiles directory path
 export DOTFILES_DIR=$(dirname $(dirname "$(readlink ~/.zshrc)"))
 
