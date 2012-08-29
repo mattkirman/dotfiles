@@ -36,6 +36,8 @@ within this directory though.
   then the current ruby is displayed in the right prompt.
 * If you have [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
   installed then that's loaded as well.
+* Git repository branch status is displayed in the left prompt (when
+  inside a repository).
 
 ## ZSH Functions
 
