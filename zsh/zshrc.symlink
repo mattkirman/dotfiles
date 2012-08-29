@@ -36,10 +36,8 @@ if [[ -a ~/.zshrc.local ]]; then
   source ~/.zshrc.local
 fi
 
-# Load rvm if it's available
-if [[ -s ~/.rvm/scripts/rvm ]]; then
-  source ~/.rvm/scripts/rvm
-fi
+# Use Rbenv if it's installed
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 # Initialize autocomplete here otherwise functions won't be loaded
 autoload -U compinit

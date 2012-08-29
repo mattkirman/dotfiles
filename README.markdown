@@ -1,7 +1,7 @@
 # Matt Kirman's dotfiles
 
 A collection of opinionated settings for OS X, zsh, Ruby, Rails, git,
-homebrew, rvm and vim. This repo was initially set up so I could easily
+homebrew, rbenv and vim. This repo was initially set up so I could easily
 transfer settings between computers, but if you share a similar setup
 you may find these useful.
 
@@ -32,10 +32,8 @@ within this directory though.
 
 ## Add-ons
 
-* A departure from `holman/dotfiles`, I use [rvm](https://rvm.io/)
-  rather than [rbenv](https://github.com/sstephenson/rbenv). If you have
-  rvm installed the current ruby and gemset will show up in the right
-  prompt.
+* If you have installed [rbenv](https://github.com/sstephenson/rbenv)
+  then the current ruby is displayed in the right prompt.
 * If you have [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
   installed then that's loaded as well.
 

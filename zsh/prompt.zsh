@@ -9,14 +9,14 @@ then
   PROMPT="$PROMPT$root_prompt "
 fi
 
-function rvm_gemset {
-  if [ -f ~/.rvm/bin/rvm-prompt ]
+function rbenv_version {
+  if which rbenv > /dev/null;
   then
-    echo `~/.rvm/bin/rvm-prompt`
+    echo `rbenv version-name`
   fi
 }
 
-RPROMPT='%{$fg[cyan]%}$(rvm_gemset)%{$reset_color%}'
+RPROMPT='%{$fg[cyan]%}$(rbenv_version)%{$reset_color%}'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="[%{$fg[green]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
