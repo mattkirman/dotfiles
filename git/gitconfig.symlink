@@ -1,0 +1,22 @@
+[color]
+  branch = true
+  diff = true
+  decorate = true
+  grep = true
+  interactive = true
+  pager = true
+  showbranch = true
+  status = true
+  ui = true
+
+[user]
+  email = matt@mattkirman.com
+  name = Matt Kirman
+  signingkey = C23874CF
+
+[core]
+  excludesfile = ~/.gitignore
+  editor = vim
+
+[push]
+  default = upstream
