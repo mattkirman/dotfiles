@@ -27,6 +27,10 @@ bind \ split-window -h
 unbind -
 bind - split-window
 
+# Renumber windows
+unbind ^r
+bind ^r run "$DOTFILES_DIR/tmux/renumber-tmux-windows"
+
 # Cycle through panes
 unbind a
 bind a select-pane -t :.+1
