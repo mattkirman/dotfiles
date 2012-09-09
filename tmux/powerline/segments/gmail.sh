@@ -12,6 +12,11 @@
 
 source "$(dirname $0)/gmail_config"
 
+if [ -z "${POWERLINE_GMAIL_ACCOUNT}" ]; then
+  echo "Undefined POWERLINE_GMAIL_ACCOUNT"
+  exit 1
+fi
+
 POWERLINE_GMAIL_PASSWORD=$(security find-generic-password -a "${POWERLINE_GMAIL_ACCOUNT}" -s "Gmail Powerline" -wg)
 POWERLINE_GMAIL_CACHE_FILE="/tmp/$(echo "${POWERLINE_GMAIL_ACCOUNT}" | sed 's/@/%/g')_gmail_powerline_unread.cache"
 
