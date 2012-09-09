@@ -60,22 +60,24 @@ unbind ^i
 bind ^i resize-pane -U 1
 
 # Status bar
-set -g status-bg colour235
+set -g status on
+set -g status-interval 2
+set -g status-utf8 on
+set -g status-justify "centre"
+
+set -g status-left "#($DOTFILES_DIR/tmux/powerline/status-left.sh)"
+set -g status-right "#($DOTFILES_DIR/tmux/powerline/status-right.sh)"
+
+set -g status-bg colour234
 set -g status-fg white
 
 set-window-option -g window-status-fg white
 set-window-option -g window-status-bg default
 
-set-window-option -g window-status-current-fg black 
-set-window-option -g window-status-current-bg green 
+set-window-option -g window-status-current-fg colour148
+set-window-option -g window-status-current-bg colour234
 
-set -g message-bg colour235 
+set -g message-bg colour234
 set -g message-fg white
 
 set-window-option -g clock-mode-colour green
-
-set -g status-interval 10
-
-set -g status-left ' '
-set -g status-right '#H - #(date -u +"%%a %%b %%d %%H:%%M")#[default] '
-
