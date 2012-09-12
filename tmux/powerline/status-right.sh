@@ -8,13 +8,13 @@ source "${cwd}/config.sh"
 source "${cwd}/lib.sh"
 
 # Gmail unread email count
-typeset -A gmail
-gmail=()
-gmail[script]="${segments_path}/gmail.sh"
-gmail[foreground]='white'
-gmail[background]='red'
-gmail[separator]="${separator_left_bold}"
-register_segment 'gmail'
+#typeset -A gmail
+#gmail=()
+#gmail[script]="${segments_path}/gmail.sh"
+#gmail[foreground]='white'
+#gmail[background]='red'
+#gmail[separator]="${separator_left_bold}"
+#register_segment 'gmail'
 
 # Date
 typeset -A date
