@@ -1,0 +1,6 @@
+#[submodule "bundle/command-t"]
+#	path = bundle/command-t
+#	url = git://git.wincent.com/command-t.git
+[submodule "vim/vim.symlink/bundle/vundle"]
+	path = vim/vim.symlink/bundle/vundle
+	url = https://github.com/gmarik/vundle.git

@@ -1,9 +1,27 @@
-" Pathogen
-filetype off 
-call pathogen#helptags()
-call pathogen#runtime_append_all_bundles()
-
 set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/vundle
+call vundle#rc()
+
+" Let Vundle manage Vundle
+Bundle 'gmarik/vundle'
+
+" General
+Bundle 'tpope/vim-surround'
+Bundle 'SuperTab'
+
+" Buffer management
+Bundle 'git://git.wincent.com/command-t.git'
+Bundle 'scrooloose/nerdtree'
+Bundle 'ZoomWin'
+
+" Colorschemes
+Bundle 'altercation/vim-colors-solarized'
+
+" Syntax
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'tpope/vim-rails.git'
 
 set modelines=0
 
@@ -107,9 +125,6 @@ nmap <Leader>T :CommandTFlush<CR>
 
 " ZoomWin configuration
 map <Leader>z :ZoomWin<CR>
-
-" CTags
-"map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
 
 " Remember last location in file
 if has("autocmd")
