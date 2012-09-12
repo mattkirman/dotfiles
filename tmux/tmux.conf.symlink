@@ -69,6 +69,8 @@ set -g status-interval 2
 set -g status-utf8 on
 set -g status-justify "centre"
 
+set -g status-left-length 30
+
 set -g status-left "#($DOTFILES_DIR/tmux/powerline/status-left.sh)"
 set -g status-right "#($DOTFILES_DIR/tmux/powerline/status-right.sh)"
 
