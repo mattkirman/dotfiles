@@ -47,5 +47,3 @@ compinit
 if [[ -f $DOTFILES_DIR/**/completion.sh ]]; then
   for config_file ($DOTFILES_DIR/**/completion.sh) source $config_file
 fi
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
