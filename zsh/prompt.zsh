@@ -9,6 +9,10 @@ then
   PROMPT="$PROMPT$root_prompt "
 fi
 
+function return_code {
+  echo "%(?..%{$fg[red]%}%? ↵ %{$reset_color%})"
+}
+
 function rbenv_version {
   if which rbenv > /dev/null;
   then
@@ -16,7 +20,7 @@ function rbenv_version {
   fi
 }
 
-RPROMPT='%{$fg[cyan]%}$(rbenv_version)%{$reset_color%}'
+RPROMPT='$(return_code)%{$fg[cyan]%}$(rbenv_version)%{$reset_color%}'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="[%{$fg[green]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
