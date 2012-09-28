@@ -1,5 +1,15 @@
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" MacVim overrides.
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 color codeschool
-let g:NERDTreeWinPos = "right"
+
+" Remove uneccesary application chrome
 set guioptions-=T " Removes top toolbar
 set guioptions-=r " Removes right hand scroll bar
 set go-=L " Removes left hand scroll bar
+
+" Opens a tab edit command with the path of the currently edited file filled in
+map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
+
+" Nerdtree config
+let g:NERDTreeWinPos = "right"

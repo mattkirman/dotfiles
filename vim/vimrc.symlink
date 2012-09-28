@@ -23,7 +23,29 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'tpope/vim-rails.git'
 
-set modelines=0
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+set encoding=utf-8
+set scrolloff=3
+set autoindent
+set showmode
+set showcmd
+set hidden
+set wildmenu
+set wildmode=list:longest,list:full
+set wildignore+=*.o,*.obj,.git,*.rbc
+set ttyfast
+set laststatus=2
+set clipboard=unnamed
+set timeoutlen=500
+
+" Directories for swp files
+set backupdir=~/.vim/backup
+set directory=~/.vim/backup
+
+" Use modeline overrides
+set modeline
+set modelines=4
 
 " Line numbers
 set number
@@ -40,20 +62,11 @@ set softtabstop=2
 set expandtab
 set list listchars=tab:\ \ ,trail:·
 
-set encoding=utf-8
-set scrolloff=3
-set autoindent
-set showmode
-set showcmd
-set hidden
-set wildmenu
-set wildmode=list:longest
-set ttyfast
-set laststatus=2
-set clipboard=unnamed
-set timeoutlen=500
-
+" Re-assign the leader from '.' to ','
 let mapleader = ","
+
+" Make ';' do the same as ':'
+nnoremap ; :
 
 " Searching
 nnoremap / /\v
@@ -65,12 +78,25 @@ set smartcase
 set gdefault
 set showmatch
 nnoremap <leader><space> :noh<cr>
-nnoremap <tab> %
-vnoremap <tab> %
 
+" Text wrapping
 set wrap
 set textwidth=79
 set formatoptions=qrn1
+
+" Allow backspacing over everything in insert mode
+set backspace=indent,eol,start
+
+" make and python use real tabs
+au FileType make      set noexpandtab
+au FileType python    set noexpandtab
+
+" Default color scheme
+set background=dark
+color solarized
+
+" Load the plugin and indent settings for the detected filetype
+filetype plugin indent on
 
 " Disable arrow keys
 nnoremap <up> <nop>
@@ -82,13 +108,10 @@ nnoremap <right> <nop>
 nnoremap j gj
 nnoremap k gk
 
-" Make ; do the same as :
-nnoremap ; :
-
 " Quick escapes
 inoremap jj <Esc>
-inoremap jk <Esc>
-inoremap kj <Esc>
+"inoremap jk <Esc>
+"inoremap kj <Esc>
 
 " Reselect visual block after indent/outdent
 vnoremap < <gv
@@ -101,16 +124,60 @@ nnoremap > V>gv<Esc>
 " Select all text in the current buffer
 map <Leader>a ggVG
 
-" Absolute line numbers in insert mode, relative otherwise for easy movement
+" Absolute line numbers in insert mode, relative numbers in others for easy movement
 au InsertEnter * :set nu
 au InsertLeave * :set rnu
 
-" Tab completion
-set wildmode=list:longest,list:full
-set wildignore+=*.o,*.obj,.git,*.rbc
+" Split windows
+nnoremap <leader>w <C-w>v<C-w>l
+nnoremap <leader>W :split<CR><C-w>j
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
-" Status bar
-set laststatus=2
+" Opens an edit command with the path of the currently edited file filled in
+" Normal mode: <Leader>e
+map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Automatically reload vimrc when it's saved
+au BufWritePost .vimrc so ~/.vimrc
+
+" Remember last location in file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+    \| exe "normal g'\"" | endif
+endif
+
+" Include user's local vim config
+if filereadable(expand("~/.vimrc.local"))
+  source ~/.vimrc.local
+endif
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+function s:setupWrapping()
+  set wrap
+  set wm=2
+  set textwidth=72
+endfunction
+
+function s:setupMarkup()
+  call s:setupWrapping()
+  map <buffer> <Leader>p :Mm <CR>
+endfunction
+
+" Thorfile, Rakefile and Gemfile are Ruby
+au BufRead,BufNewFile {Gemfile,Rakefile,Thorfile,config.ru}    set ft=ruby
+
+" md, markdown, and mk are markdown and define buffer-local preview
+au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkup()
+
+au BufRead,BufNewFile *.txt call s:setupWrapping()
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " NERDTree configuration
 let NERDTreeIgnore=['\.rbc$', '\~$']
@@ -125,86 +192,3 @@ nmap <Leader>T :CommandTFlush<CR>
 
 " ZoomWin configuration
 map <Leader>z :ZoomWin<CR>
-
-" Remember last location in file
-if has("autocmd")
-  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
-    \| exe "normal g'\"" | endif
-endif
-
-" Automatically reload vimrc when it's saved
-au BufWritePost .vimrc so ~/.vimrc
-
-function s:setupWrapping()
-  set wrap
-  set wm=2
-  set textwidth=72
-endfunction
-
-function s:setupMarkup()
-  call s:setupWrapping()
-  map <buffer> <Leader>p :Mm <CR>
-endfunction
-
-" make and python use real tabs
-au FileType make                                     set noexpandtab
-au FileType python                                   set noexpandtab
-
-" Thorfile, Rakefile and Gemfile are Ruby
-au BufRead,BufNewFile {Gemfile,Rakefile,Thorfile,config.ru}    set ft=ruby
-
-" md, markdown, and mk are markdown and define buffer-local preview
-au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkup()
-
-au BufRead,BufNewFile *.txt call s:setupWrapping()
-
-" allow backspacing over everything in insert mode
-set backspace=indent,eol,start
-
-" load the plugin and indent settings for the detected filetype
-filetype plugin indent on
-
-" Opens an edit command with the path of the currently edited file filled in
-" Normal mode: <Leader>e
-map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
-
-" Opens a tab edit command with the path of the currently edited file filled in
-" Normal mode: <Leader>t
-map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
-
-" Inserts the path of the currently edited file into a command
-" Command mode: Ctrl+P
-cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
-
-" Unimpaired configuration
-" Bubble single lines
-nmap <C-Up> [e
-nmap <C-Down> ]e
-" Bubble multiple lines
-vmap <C-Up> [egv
-vmap <C-Down> ]egv
-
-" Use modeline overrides
-set modeline
-set modelines=10
-
-" Default color scheme
-set background=dark
-colorscheme solarized
-
-" Include user's local vim config
-if filereadable(expand("~/.vimrc.local"))
-  source ~/.vimrc.local
-endif
-
-"Directories for swp files
-set backupdir=~/.vim/backup
-set directory=~/.vim/backup
-
-" Split windows
-nnoremap <leader>w <C-w>v<C-w>l
-nnoremap <leader>W :split<CR><C-w>j
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
