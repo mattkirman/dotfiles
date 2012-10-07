@@ -48,8 +48,7 @@ set modeline
 set modelines=4
 
 " Line numbers
-set number
-set relativenumber
+set rnu
 set ruler
 set cursorline
 syntax on
