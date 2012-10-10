@@ -22,8 +22,8 @@ unbind r
 bind r source-file ~/.tmux.conf
 
 # Horizontal and vertical splits
-unbind \
-bind \ split-window -h
+unbind '\'
+bind '\' split-window -h
 unbind -
 bind - split-window
 
