@@ -63,6 +63,10 @@ bind ^u resize-pane -D 1
 unbind ^i
 bind ^i resize-pane -U 1
 
+# Set pane numbering to start from 1
+set -g base-index 1
+set -g pane-base-index 1
+
 # Status bar
 set -g status on
 set -g status-interval 2
