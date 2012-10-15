@@ -1,6 +1,12 @@
 set-option -g default-command "reattach-to-user-namespace -l zsh"
 set -g default-terminal "screen-256color"
 set -g history-limit 8192
+
+# Rebind the prefix to ^a
+unbind-key C-b
+set -g prefix C-a
+bind-key C-a send-prefix
+
 # Use VI
 set-window-option -g mode-keys vi
 
