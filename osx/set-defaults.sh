@@ -26,6 +26,9 @@ defaults write com.apple.screencapture disable-shadow -bool true
 # Disable the Dashboard
 defaults write com.apple.dashboard mcx-disabled -bool true
 
+# Make the caps lock key act as control
+osascript $DOTFILES_DIR/osx/capslock-to-control.scpt
+
 # Restart effected services
 killall Dock
 killall SystemUIServer
