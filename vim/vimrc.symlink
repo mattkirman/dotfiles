@@ -92,7 +92,9 @@ au FileType python    set noexpandtab
 
 " Default color scheme
 set background=dark
-color solarized
+color universe
+
+set fillchars=vert:\│"
 
 " Load the plugin and indent settings for the detected filetype
 filetype plugin indent on
