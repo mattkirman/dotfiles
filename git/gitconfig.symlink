@@ -18,5 +18,8 @@
   excludesfile = ~/.gitignore
   editor = vim
 
+[branch]
+  autosetupmerge = true
+
 [push]
-  default = upstream
+  default = simple
