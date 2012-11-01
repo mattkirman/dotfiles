@@ -86,6 +86,10 @@ set formatoptions=qrn1
 " Allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
+" Automatically include external file changes when the cursor moves
+au CursorMoved * checktime
+set autoread
+
 " make and python use real tabs
 au FileType make      set noexpandtab
 au FileType python    set noexpandtab
