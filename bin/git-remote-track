@@ -1,0 +1,22 @@
+#!/bin/sh
+#
+# Track an existing remote branch locally and checkout the branch.
+
+if [ -z $1 ]; then
+  echo 'Usage: git remote-track BRANCH_NAME [REMOTE]'
+  exit 1
+else
+  branch_name=$1
+fi
+
+current_branch=$(git symbolic-ref -q HEAD | sed -e 's|^refs/heads/||')
+
+if [ -z $2 ]; then
+  origin=$(git config --get "branch.${current_branch}.remote")
+  [ -z "${origin}" ] && ( git config --add "branch.${current_branch}.remote" origin )
+else
+  origin=$2
+fi
+
+git fetch $origin
+git branch --set-upstream $branch_name $origin/$branch_name

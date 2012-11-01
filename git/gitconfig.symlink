@@ -1,3 +1,19 @@
+[user]
+  email = matt@mattkirman.com
+  name = Matt Kirman
+  signingkey = C23874CF
+
+[alias]
+  count = !git shortlog -sn
+  remote-create   = !$DOTFILES_DIR/bin/git-remote-create
+  remote-delete   = !$DOTFILES_DIR/bin/git-remote-delete
+  remote-publish  = !$DOTFILES_DIR/bin/git-remote-publish
+  remote-rename   = !$DOTFILES_DIR/bin/git-remote-rename
+  remote-track    = !$DOTFILES_DIR/bin/git-remote-track
+
+[branch]
+  autosetupmerge = true
+
 [color]
   branch = true
   diff = true
@@ -9,17 +25,9 @@
   status = true
   ui = true
 
-[user]
-  email = matt@mattkirman.com
-  name = Matt Kirman
-  signingkey = C23874CF
-
 [core]
   excludesfile = ~/.gitignore
   editor = vim
-
-[branch]
-  autosetupmerge = true
 
 [push]
   default = simple

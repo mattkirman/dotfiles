@@ -1,0 +1,28 @@
+#!/bin/sh
+#
+# Deletes the remote branch then the local branch. The local branch is not
+# deleted if there are pending changes.
+
+if [ -z $1 ]; then
+  echo 'Usage: git remote-delete BRANCH_NAME [REMOTE]'
+  exit 1
+else
+  branch_name=$1
+fi
+
+current_branch=$(git symbolic-ref -q HEAD | sed -e 's|^refs/heads/||')
+
+if [ -z $2 ]; then
+  origin=$(git config --get "branch.${current_branch}.remote")
+  [ -z "${origin}" ] && ( git config --add "branch.${current_branch}.remote" origin )
+else
+  origin=$2
+fi
+
+git push $origin :refs/heads/$branch_name
+
+if [ "$current_branch" == "$branch_name" ]; then
+  git checkout master
+fi
+
+git branch -d $branch_name
