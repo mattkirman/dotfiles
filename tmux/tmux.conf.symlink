@@ -21,6 +21,11 @@ bind ^x kill-pane
 unbind r
 bind r source-file ~/.tmux.conf
 
+# I heard you run Tmux inside your Tmux.
+# You can now use C-b b <command> to send commands to the nested multiplexer.
+unbind b
+bind-key b send-prefix
+
 # Horizontal and vertical splits
 unbind '\'
 bind '\' split-window -h
