@@ -31,6 +31,9 @@ bind - split-window
 unbind ^r
 bind ^r run "$DOTFILES_DIR/tmux/renumber-tmux-windows"
 
+# Go to the last active window
+bind-key C-b last-window
+
 # Cycle through panes
 unbind a
 bind a select-pane -t :.+1
