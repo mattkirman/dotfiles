@@ -99,3 +99,6 @@ set -g message-bg colour234
 set -g message-fg white
 
 set-window-option -g clock-mode-colour green
+
+# Only resize windows if a smaller client is currently viewing it
+setw -g aggressive-resize on
