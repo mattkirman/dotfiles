@@ -39,8 +39,38 @@ within this directory though.
 * Git repository branch status is displayed in the left prompt (when
   inside a repository).
 
-## ZSH Functions
+## Aliases/Functions
 
-* `tssh HOST` - Open a remote tmux session on HOST
+### cURL
+
+* `headers URL` - Display request/response headers for a URL.
+
+### Git
+
+* `gco` - Alias of `git checkout`.
+* `git count` - Show the number of commits made to a repository.
+* `gl` - Generates a pretty Git log with branch trees.
+* `git remote-create BRANCH_NAME [REMOTE]` - Creates a new local topic branch as well as
+  a corresponding remote branch based on the branch you currently have
+  checked out.
+* `git remote-delete BRANCH_NAME [REMOTE]` - Deletes the local branch then the local branch.
+* `git remote-publish` - Publishes an existing local topic branch to the
+  remote server.
+* `git remote-rename BRANCH_NAME [REMOTE]` - Rename a remote branch and
+  its local tracking branch.
+* `git remote-track BRANCH_NAME [REMOTE]` - Track an existing remote
+  branch locally and checkout the branch.
+
+### Tmux
+
+* `tmx` - Share Tmux windows between sessions. This allows you to share
+  windows without forcing you to share the same view.
+* `tssh HOST` - Open a remote Tmux session on HOST over SSH. To close
+  the SSH session just detach Tmux.
+
+### Shell
+
+* `e FILE` - Opens a file in your `$EDITOR`.
 * `extract ARCHIVE` - Extracts an archive using the correct command
-  based on the file extension
+  based on the file extension.
+* `reload!` - Made any changes to your config? `reload!` is your friend.
