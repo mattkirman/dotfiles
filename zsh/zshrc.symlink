@@ -47,3 +47,7 @@ compinit
 if [[ -f $DOTFILES_DIR/**/completion.sh ]]; then
   for config_file ($DOTFILES_DIR/**/completion.sh) source $config_file
 fi
+
+# Prefer scripts in the local ./bin path rather than globals.
+# This works really nicely when using binstubs in your projects.
+export PATH=./bin:$PATH
