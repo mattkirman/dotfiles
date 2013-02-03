@@ -115,8 +115,6 @@ nnoremap k gk
 
 " Quick escapes
 inoremap jj <Esc>
-"inoremap jk <Esc>
-"inoremap kj <Esc>
 
 " Reselect visual block after indent/outdent
 vnoremap < <gv
@@ -145,10 +143,21 @@ nnoremap <C-l> <C-w>l
 " Normal mode: <Leader>e
 map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
+" Session management
+nnoremap <leader>s :mksession!<CR>
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Automatically reload vimrc when it's saved
 au BufWritePost .vimrc so ~/.vimrc
+
+" Automatically restore session if a Session.vim exists
+function! RestoreSession()
+  if argc() == 0 && filereadable("Session.vim") " vim called without arguments
+    execute 'source Session.vim'
+  end
+endfunction
+autocmd VimEnter * call RestoreSession()
 
 " Remember last location in file
 if has("autocmd")
