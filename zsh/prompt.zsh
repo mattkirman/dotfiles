@@ -24,5 +24,5 @@ RPROMPT='$(return_code)%{$fg[cyan]%}$(rbenv_version)%{$reset_color%}'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[green]%}:"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_DIRTY=") %{$fg[yellow]%}⚡%{$reset_color%} "
+ZSH_THEME_GIT_PROMPT_DIRTY=") %{$fg[yellow]%}\xE2\x9A\xA1\xEF\xB8\x8E%{$reset_color%} "
 ZSH_THEME_GIT_PROMPT_CLEAN=") "
