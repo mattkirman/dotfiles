@@ -1,29 +1,12 @@
-# Use oh-my-zsh if it's available
-if [[ -a ~/.oh-my-zsh ]]; then
-  # Path to your oh-my-zsh configuration
-  export ZSH=$HOME/.oh-my-zsh
-
-  # Comment this out to use case-sensitive completion
-  # export CASE_SENSITIVE="true"
-
-  # Comment this out to disable weekly oh-my-zsh update checks
-  # export DISABLE_AUTO_UPDATE="true"
-
-  # Comment this out if you want to disable colors in ls
-  # export DISABLE_LS_COLORS="true"
-
-  # Which oh-my-zsh plugins would you like to load? Plugins can be found in:
-  # $HOME/.oh-my-zsh/plugins/*
-  plugins=(brew cap gem github osx rails git ruby)
-
-  source $ZSH/oh-my-zsh.sh
-fi
-
 # Discover our dotfiles directory path
 export DOTFILES_DIR=$(dirname $(dirname "$(readlink ~/.zshrc)"))
 
 # Prepend locals to the path
 export PATH=$DOTFILES_DIR/bin:/usr/local/bin:$PATH
+
+# Initialize autocomplete here otherwise functions and completions won't be loaded
+autoload -U compinit
+compinit -i
 
 # Source every zsh functions file
 for function_file ($DOTFILES_DIR/zsh/functions/*) source $function_file
@@ -38,10 +21,6 @@ fi
 
 # Use Rbenv if it's installed
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-
-# Initialize autocomplete here otherwise functions won't be loaded
-autoload -U compinit
-compinit
 
 # Load every completion after autocomplete loads
 if [[ -f $DOTFILES_DIR/**/completion.sh ]]; then
