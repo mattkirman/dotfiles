@@ -10,6 +10,7 @@ Bundle 'gmarik/vundle'
 " General
 Bundle 'tpope/vim-surround'
 Bundle 'SuperTab'
+Bundle 'bling/vim-airline'
 
 " Buffer management
 Bundle 'git://git.wincent.com/command-t.git'
@@ -207,3 +208,7 @@ nmap <Leader>T :CommandTFlush<CR>
 
 " ZoomWin configuration
 map <Leader>z :ZoomWin<CR>
+
+" Airline config
+let g:airline_powerline_fonts=1
+set noshowmode
