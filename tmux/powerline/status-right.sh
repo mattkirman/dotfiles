@@ -16,6 +16,15 @@ source "${cwd}/lib.sh"
 #gmail[separator]="${separator_left_bold}"
 #register_segment 'gmail'
 
+# Battery
+typeset -A battery
+battery=()
+battery[script]="${segments_path}/battery.sh"
+battery[foreground]='white'
+battery[background]='colour234'
+#battery[separator]="${separator_left_bold}"
+register_segment 'battery'
+
 # Date
 typeset -A date
 date=()
