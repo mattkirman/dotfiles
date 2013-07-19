@@ -2,6 +2,7 @@
 " MacVim overrides.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 color codeschool
+set guifont=Source\ Code\ Pro\ for\ Powerline:h11
 
 " Remove uneccesary application chrome
 set guioptions-=T " Removes top toolbar
