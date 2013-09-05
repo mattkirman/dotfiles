@@ -21,6 +21,7 @@ Bundle 'ZoomWin'
 Bundle 'altercation/vim-colors-solarized'
 
 " Syntax
+Bundle 'scrooloose/syntastic'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'tpope/vim-rails.git'
 Bundle 'rodjek/vim-puppet'
