@@ -13,7 +13,7 @@ Bundle 'SuperTab'
 Bundle 'bling/vim-airline'
 
 " Buffer management
-Bundle 'git://git.wincent.com/command-t.git'
+Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'ZoomWin'
 
@@ -199,10 +199,9 @@ let NERDTreeMinimalUI=1
 let NERDTreeDirArrows=1
 map <Leader>n :NERDTreeToggle<CR>
 
-" Command-T configuration
-let g:CommandTMaxHeight=30
-nmap <Leader>t :CommandT<CR>
-nmap <Leader>T :CommandTFlush<CR>
+" CtrlP configuration
+nmap <Leader>t :CtrlP<CR>
+nmap <Leader>T :CtrlPClearCache<CR>
 
 " ZoomWin configuration
 map <Leader>z :ZoomWin<CR>
