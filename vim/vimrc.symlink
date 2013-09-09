@@ -17,9 +17,6 @@ Bundle 'git://git.wincent.com/command-t.git'
 Bundle 'scrooloose/nerdtree'
 Bundle 'ZoomWin'
 
-" Colorschemes
-Bundle 'altercation/vim-colors-solarized'
-
 " Syntax
 Bundle 'scrooloose/syntastic'
 Bundle 'kchmck/vim-coffee-script'
