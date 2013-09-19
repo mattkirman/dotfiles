@@ -200,6 +200,7 @@ let NERDTreeDirArrows=1
 map <Leader>n :NERDTreeToggle<CR>
 
 " CtrlP configuration
+let g:ctrlp_match_window='order:ttb'
 nmap <Leader>t :CtrlP<CR>
 nmap <Leader>T :CtrlPClearCache<CR>
 
