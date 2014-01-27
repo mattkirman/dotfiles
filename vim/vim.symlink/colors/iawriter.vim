@@ -13,17 +13,18 @@ endif
 
 let g:colors_name="iawriter"
 
-hi Cursor       guifg=fg     guibg=#990000 
+hi Cursor guifg=fg guibg=#00baff
+hi CursorLine   guibg=#f5f5f6
+hi CursorLineNr guifg=#f5f6f6
 hi Normal       guifg=#424242   guibg=#f5f6f6          ctermfg=black    ctermbg=white
 hi DiffAdd                    guibg=#c0ffe0                           ctermbg=3
 hi DiffDelete   guifg=#ff8097 guibg=#ffe0f7          ctermfg=4        ctermbg=5
 hi DiffChange                 guibg=#cfefff                           ctermbg=9
 hi DiffText                   guibg=#bfdfff gui=NONE                  ctermbg=6     cterm=NONE
 hi FoldColumn guibg=#f5f6f6
-hi NonText      guifg=grey50  guibg=grey86  gui=NONE ctermfg=darkblue
+hi NonText      guifg=#f5f6f6  guibg=#f5f6f6  gui=NONE ctermfg=darkblue
 hi SpecialKey   guifg=grey50  guibg=grey86  gui=NONE ctermfg=darkblue
-hi NonText      guifg=grey50  guibg=grey86           ctermfg=blue
-hi LineNr       guifg=grey50  guibg=#f5f6f6           ctermfg=darkblue
+hi LineNr       guifg=#f5f6f6  guibg=#f5f6f6           ctermfg=darkblue
 hi Search                     guibg=#fff999
 hi StatusLine   guifg=bg      guibg=#333333 gui=NONE ctermfg=bg       ctermbg=black cterm=NONE
 hi StatusLineNC guifg=bg      guibg=grey40  gui=NONE ctermfg=bg       ctermbg=black cterm=NONE
@@ -38,9 +39,23 @@ hi Statement    guifg=black   guibg=bg               ctermfg=black              
 hi PreProc      guifg=#335588 guibg=bg      gui=NONE ctermfg=blue
 hi Type         guifg=#338855 guibg=bg      gui=NONE ctermfg=darkgreen
 hi StorageClass guifg=#990000 guibg=bg               ctermfg=red
-hi Special      guifg=#6688ff guibg=bg               ctermfg=darkcyan
+"hi Special      guifg=#6688ff guibg=bg               ctermfg=darkcyan
+hi Special      guifg=#424242 guibg=bg               ctermfg=darkcyan
 hi Function     guifg=#117777 guibg=bg               ctermfg=red
-hi Title        guifg=black   guibg=bg               ctermfg=black   
+hi Title        guifg=#424242   guibg=bg               ctermfg=black   
+
+" markdown syntax
+hi markdownBold gui=bold
+hi markdownItalic gui=italic
+hi markdownBoldItalic gui=bold,italic
+hi markdownLinkText guifg=#424242 gui=NONE
+hi markdownUrl guifg=#929292 gui=underline
+hi markdownLinkDelimiter guifg=#929292
+hi markdownUrlDelimiter guifg=#929292
+hi markdownUrlTitleDelimiter guifg=#929292
+hi markdownLinkTextDelimiter guifg=#929292
+hi markdownId guifg=#929292
+hi markdownIdDeclaration guifg=#929292
 
 " showpairs plugin
 "   for cursor on paren
