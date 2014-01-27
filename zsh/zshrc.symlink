@@ -2,7 +2,7 @@
 export DOTFILES_DIR=$(dirname $(dirname "$(readlink ~/.zshrc)"))
 
 # Prepend locals to the path
-export PATH=$DOTFILES_DIR/bin:/usr/local/bin:$PATH
+export PATH=$DOTFILES_DIR/bin:/usr/local/sbin:/usr/local/bin:$PATH
 
 # Initialize autocomplete here otherwise functions and completions won't be loaded
 autoload -U compinit
