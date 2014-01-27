@@ -2,7 +2,7 @@
 " MacVim overrides.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 color codeschool
-set guifont=Source\ Code\ Pro\ for\ Powerline:h11
+set guifont=Source\ Code\ Pro\ for\ Powerline:h12
 
 " Remove uneccesary application chrome
 set guioptions-=T " Removes top toolbar
@@ -11,3 +11,24 @@ set go-=L " Removes left hand scroll bar
 
 " Opens a tab edit command with the path of the currently edited file filled in
 map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
+
+" Distraction free writing
+au BufNewFile,BufRead *.{md,mdown,mkd,mkdn,markdown,mdwn} call DistractionFreeWriting()
+
+function! DistractionFreeWriting()
+  colorscheme iawriter
+  set background=light
+  set lines=40 columns=116
+  set guioptions-=r
+  set laststatus=0
+  set noruler
+  set linebreak
+  set spell
+
+  set guifont=Source\ Code\ Pro\ for\ Powerline:h14
+
+  if v:version >= 700
+    set numberwidth=10
+    set foldcolumn=12
+  endif
+endfunction
