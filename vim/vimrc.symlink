@@ -22,6 +22,7 @@ Bundle 'scrooloose/syntastic'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'tpope/vim-rails.git'
 Bundle 'rodjek/vim-puppet'
+Bundle 'ekalinin/Dockerfile.vim'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
