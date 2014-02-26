@@ -205,6 +205,9 @@ map <Leader>n :NERDTreeToggle<CR>
 let g:ctrlp_match_window='order:ttb'
 nmap <Leader>t :CtrlP<CR>
 nmap <Leader>T :CtrlPClearCache<CR>
+let g:ctrlp_custom_ignore = {
+  \ 'dir': 'vendor/ruby',
+  \ }
 
 " ZoomWin configuration
 map <Leader>z :ZoomWin<CR>
