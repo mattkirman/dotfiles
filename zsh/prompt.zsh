@@ -12,15 +12,12 @@ function return_code {
   echo "%(?..%{$fg[red]%}%? ↵ %{$reset_color%})"
 }
 
-function rbenv_version {
-  if which rbenv > /dev/null;
-  then
-    echo `rbenv version-name`
-  fi
+function timestamp {
+  echo " %{$fg[cyan]%}$(date +"%H:%M:%S")%{$reset_color%}"
 }
 
-PROMPT='%{$fg[blue]%}${user_host} %{$fg_bold[green]%}%{$reset_color%}%c $(git_prompt_info)→ % %{$reset_color%}'
-RPROMPT='$(return_code)%{$fg[cyan]%}$(rbenv_version)%{$reset_color%}'
+PROMPT='%{$fg[blue]%}%c%{$reset_color%} $(git_prompt_info)→ %{$reset_color%}'
+RPROMPT='$(return_code)%{$reset_color%}$(timestamp)'
 
 if [[ $EUID -eq 0 ]]
 then
