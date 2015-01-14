@@ -31,5 +31,10 @@ fi
 # This works really nicely when using binstubs in your projects.
 export PATH=./bin:$PATH
 
+# Include ZSH Syntax Highlighting if installed with Homebrew.
+if [[ -f /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
+  source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
