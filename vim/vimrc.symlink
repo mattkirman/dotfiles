@@ -42,6 +42,8 @@ set ttyfast
 set laststatus=2
 set clipboard=unnamed
 set timeoutlen=500
+set foldmethod=syntax
+set nofoldenable
 
 " Directories for swp files
 set backupdir=~/.vim/backup
