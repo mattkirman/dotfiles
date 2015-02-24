@@ -26,6 +26,7 @@ Bundle 'ekalinin/Dockerfile.vim'
 Bundle 'tpope/vim-markdown'
 Bundle 'jnwhiteh/vim-golang'
 Bundle 'mustache/vim-mustache-handlebars'
+Bundle 'cespare/vim-toml'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
