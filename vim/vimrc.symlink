@@ -28,6 +28,9 @@ Plugin 'jnwhiteh/vim-golang'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'cespare/vim-toml'
 
+" Colorschemes
+Plugin 'sjl/badwolf'
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set encoding=utf-8
