@@ -5,28 +5,28 @@ set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
 
 " Let Vundle manage Vundle
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
 " General
-Bundle 'tpope/vim-surround'
-Bundle 'SuperTab'
-Bundle 'bling/vim-airline'
+Plugin 'tpope/vim-surround'
+Plugin 'SuperTab'
+Plugin 'bling/vim-airline'
 
 " Buffer management
-Bundle 'kien/ctrlp.vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'ZoomWin'
+Plugin 'kien/ctrlp.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'ZoomWin'
 
 " Syntax
-Bundle 'scrooloose/syntastic'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'tpope/vim-rails.git'
-Bundle 'rodjek/vim-puppet'
-Bundle 'ekalinin/Dockerfile.vim'
-Bundle 'tpope/vim-markdown'
-Bundle 'jnwhiteh/vim-golang'
-Bundle 'mustache/vim-mustache-handlebars'
-Bundle 'cespare/vim-toml'
+Plugin 'scrooloose/syntastic'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'tpope/vim-rails.git'
+Plugin 'rodjek/vim-puppet'
+Plugin 'ekalinin/Dockerfile.vim'
+Plugin 'tpope/vim-markdown'
+Plugin 'jnwhiteh/vim-golang'
+Plugin 'mustache/vim-mustache-handlebars'
+Plugin 'cespare/vim-toml'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
