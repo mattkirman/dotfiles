@@ -2,10 +2,10 @@ set nocompatible
 filetype off
 
 set rtp+=~/.vim/bundle/vundle
-call vundle#rc()
+call vundle#begin()
 
-" Let Vundle manage Vundle
-Plugin 'gmarik/vundle'
+" Let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
 
 " General
 Plugin 'tpope/vim-surround'
@@ -30,6 +30,10 @@ Plugin 'cespare/vim-toml'
 
 " Colorschemes
 Plugin 'sjl/badwolf'
+
+" All of your Plugins must be added before the following line
+call vundle#end()           " required
+filetype plugin indent on   " required
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
