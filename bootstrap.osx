@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+##
+# Install dotfiles over the network with:
+#   bash <(curl -s https://raw.githubusercontent.com/mattkirman/dotfiles/master/bootstrap.osx)
+
+# Install developer tools
+xcode-select --install
+
+# Install Homebrew
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+# Install Git
+brew install git
+
+# Create the basic directory structure and clone the dotfiles repo into it
+mkdir -p ~/Code
+cd ~/Code
+git clone https://github.com/mattkirman/dotfiles.git
+cd dotfiles
+rake install
+
+# Make Zsh our default terminal
+brew install zsh
+brew install zsh-syntax-highlighting
+chsh -s $(which zsh)
+
+# Tmux is always useful
+brew install tmux
+brew install reattach-to-user-namespace
+
+# Install a modern Ruby environment
+brew install readline
+brew install openssl
+brew install rbenv
+brew install ruby-build
+
+# Miscellaneous dev tools, languages, and utilities
+brew install vim
+brew install macvim
+brew install go
+brew install node
+brew install siege
+brew install tree
+brew install the_silver_searcher
+brew install watch
+brew install wget
