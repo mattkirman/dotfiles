@@ -5,8 +5,8 @@ color codeschool
 set guifont=Office\ Code\ Pro:h12
 
 " Remove uneccesary application chrome
-set guioptions-=T " Removes top toolbar
-set guioptions-=r " Removes right hand scroll bar
+set go-=T " Removes top toolbar
+set go-=r " Removes right hand scroll bar
 set go-=L " Removes left hand scroll bar
 
 " Opens a tab edit command with the path of the currently edited file filled in
