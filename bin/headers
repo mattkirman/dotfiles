@@ -2,7 +2,14 @@
 #
 # https://github.com/rtomayko/dotfiles/blob/rtomayko/bin/headers
 
-curl -sv "$@" 2>&1 >/dev/null |
-  grep -v "^\*" |
-  grep -v "^}" |
-  cut -c3-
+if type "http" > /dev/null; then
+  http --headers "$@"
+elif type "curl" > /dev/null; then
+  curl -sv "$@" 2>&1 >/dev/null |
+    grep -v "^\*" |
+    grep -v "^}" |
+    cut -c3-
+else
+  echo "headers requires httpie or curl to be installed"
+  exit 1
+fi
