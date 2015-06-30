@@ -4,6 +4,9 @@
 color codeschool
 set guifont=Office\ Code\ Pro:h12
 
+" Set a default window size
+set lines=40 columns=140
+
 " Remove uneccesary application chrome
 set go-=T " Removes top toolbar
 set go-=r " Removes right hand scroll bar
