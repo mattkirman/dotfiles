@@ -13,21 +13,75 @@ set go-=L " Removes left hand scroll bar
 map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
 " Distraction free writing
-au BufNewFile,BufRead *.{md,mdown,mkd,mkdn,markdown,mdwn} call DistractionFreeWriting()
+let g:distraction_free_writing = 0
+let g:dfw_background = &background
+let g:dfw_linespace = &linespace
+let g:dfw_lines = &lines
+let g:dfw_columns = &columns
+let g:dfw_textwidth = &textwidth
+let g:dfw_formatoptions = &formatoptions
+let g:dfw_linespace = &linespace
+let g:dfw_laststatus = &laststatus
+let g:dfw_scrolloff = &scrolloff
+
+:command DistractionFree call DistractionFreeWriting()
+map <Leader>df :DistractionFree <CR>
 
 function! DistractionFreeWriting()
-  colorscheme iawriter
-  set background=light
-  set lines=30 columns=92
-  set linespace=7
-  set laststatus=0
-  set noruler
-  set linebreak
-  set spell
+  if g:distraction_free_writing
+    let g:distraction_free_writing = 0
 
-  set guifont=Cousine:h19
+    color codeschool
+    let &background = g:dfw_background
+    let &linespace = g:dfw_linespace
+    let &lines = g:dfw_lines
+    let &columns = g:dfw_columns
+    let &textwidth = g:dfw_textwidth
+    let &linespace = g:dfw_linespace
+    let &formatoptions = g:dfw_formatoptions
+    let &laststatus = g:dfw_laststatus
+    let &scrolloff = g:dfw_scrolloff
+    set rnu
+    set linebreak&
+    set spell&
 
-  if v:version >= 700
-    set numberwidth=10
+    set guifont=Office\ Code\ Pro:h12
+
+    if v:version >= 700
+      set numberwidth&
+    endif
+  else
+    let g:distraction_free_writing = 1
+    let g:dfw_background = &background
+    let g:dfw_linespace = &linespace
+    let g:dfw_lines = &lines
+    let g:dfw_columns = &columns
+    let g:dfw_textwidth = &textwidth
+    let g:dfw_formatoptions = &formatoptions
+    let g:dfw_linespace = &linespace
+    let g:dfw_laststatus = &laststatus
+    let g:dfw_scrolloff = &scrolloff
+
+    color iawriter
+    set background=light
+    set lines=26 columns=102
+    set textwidth=80
+    set formatoptions+=t
+    set linespace=7
+    set laststatus=0
+    set scrolloff=999
+    set noruler
+    set wrap
+    set linebreak
+    set nolist
+    set spell
+
+    set guifont=Cousine:h19
+
+    if v:version >= 700
+      set numberwidth=10
+    endif
   endif
 endfunction
+
+au BufNewFile,BufRead *.{md,mdown,mkd,mkdn,markdown,mdwn} call DistractionFreeWriting()
