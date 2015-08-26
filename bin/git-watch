@@ -6,4 +6,7 @@
 #   fswatch (https://github.com/emcrisostomo/fswatch)
 ##
 
-fswatch -0 -or -e '\.git' . | xargs -0 -n 1 bash -c 'clear; git status --short; git --no-pager diff --shortstat'
+script='clear; git status --short; git --no-pager diff --shortstat'
+bash -c "$script"
+
+fswatch -0 -or -e '\.git' . | xargs -0 -n 1 bash -c "$script"
