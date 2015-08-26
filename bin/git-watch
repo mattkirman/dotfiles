@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+##
+# Dashboard showing current status of a Git repo. Updates live as files are changed.
+#
+# Requires:
+#   fswatch (https://github.com/emcrisostomo/fswatch)
+##
+
+fswatch -0 -or -e '\.git' . | xargs -0 -n 1 bash -c 'clear; git status --short; git --no-pager diff --shortstat'
