@@ -15,7 +15,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'bling/vim-airline'
 
 " Buffer management
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'ZoomWin'
 
@@ -201,8 +201,9 @@ let g:ctrlp_match_window='order:ttb'
 nmap <Leader>t :CtrlP<CR>
 nmap <Leader>T :CtrlPClearCache<CR>
 let g:ctrlp_custom_ignore = {
-  \ 'dir': 'vendor/ruby',
+  \ 'dir': 'doc\|log\|spec/reports\|tmp\|vendor/ruby',
   \ }
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
 " ZoomWin configuration
 map <Leader>z :ZoomWin<CR>
@@ -215,6 +216,8 @@ set noshowmode
 let g:syntastic_check_on_open=1
 let g:syntastic_auto_loc_list=1
 let g:syntastic_loc_list_height=5
+
+let g:syntastic_ruby_checkers=['rubocop', 'mri']
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
