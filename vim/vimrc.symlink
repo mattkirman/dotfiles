@@ -135,6 +135,9 @@ nnoremap k gk
 " Quick escapes
 inoremap jj <Esc>
 
+tnoremap <Esc> <C-\><C-n>
+tnoremap jj <C-\><C-n>
+
 " Reselect visual block after indent/outdent
 vnoremap < <gv
 vnoremap > >gv
@@ -157,6 +160,13 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+
+tnoremap <leader>w <C-\><C-n><C-w>v<C-w>l
+tnoremap <leader>W <C-\><C-n>:split<CR><C-w>j
+tnoremap <C-h> <C-\><C-n><C-w>h
+tnoremap <C-j> <C-\><C-n><C-w>j
+tnoremap <C-k> <C-\><C-n><C-w>k
+tnoremap <C-l> <C-\><C-n><C-w>l
 
 " Opens an edit command with the path of the currently edited file filled in
 " Normal mode: <Leader>e
