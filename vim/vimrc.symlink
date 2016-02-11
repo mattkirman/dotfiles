@@ -115,7 +115,7 @@ au FileType python    set noexpandtab
 
 " Default color scheme
 set background=dark
-color universe
+color universe-dark
 
 set fillchars=vert:\│"
 
