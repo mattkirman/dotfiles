@@ -39,11 +39,12 @@ function elapsed_time {
 }
 
 function timestamp {
-  echo " %{$fg[cyan]%}$(date +"%H:%M:%S")%{$reset_color%}"
+  echo -n " %{$fg[cyan]%}$(date +"%H:%M:%S")%{$reset_color%}"
 }
 
-PROMPT='%{$fg[blue]%}%c%{$reset_color%} $(git_prompt_info)→ %{$reset_color%}'
+PROMPT='%{$fg[blue]%}%c%{$reset_color%} $(git_prompt_info)→ %{$reset_color%} '
 RPROMPT='$(return_code)%{$reset_color%}$(elapsed_time)$(timestamp)'
+ZLE_RPROMPT_INDENT=0
 
 if [[ $EUID -eq 0 ]]
 then
