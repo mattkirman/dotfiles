@@ -1,1 +1,1 @@
-/Users/matt.kirman/.vimrc
+../vimrc.symlink
