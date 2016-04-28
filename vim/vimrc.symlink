@@ -1,43 +1,44 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/vundle
-call vundle#begin()
+" Autoinstall vim-plug
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
+  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall
+endif
+call plug#begin()
 
-" Let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+function! DoRemote(arg)
+  UpdateRemotePlugins
+endfunction
 
 " General
-Plugin 'tpope/vim-surround'
-Plugin 'SuperTab'
-Plugin 'tpope/vim-fugitive'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'bling/vim-airline'
+Plug 'tpope/vim-surround'
+Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+Plug 'Konfekt/FastFold'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'bling/vim-airline'
 
 " Buffer management
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'ZoomWin'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
 " Syntax
-Plugin 'scrooloose/syntastic'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'tpope/vim-rails.git'
-Plugin 'rodjek/vim-puppet'
-Plugin 'ekalinin/Dockerfile.vim'
-Plugin 'tpope/vim-markdown'
-Plugin 'jnwhiteh/vim-golang'
-Plugin 'mustache/vim-mustache-handlebars'
-Plugin 'cespare/vim-toml'
-
-"Plugin 'othree/yajs.vim'
-Plugin 'isRuslan/vim-es6'
-
-" Colorschemes
-Plugin 'sjl/badwolf'
+Plug 'scrooloose/syntastic'
+Plug 'kchmck/vim-coffee-script'
+Plug 'tpope/vim-rails'
+Plug 'rodjek/vim-puppet'
+Plug 'ekalinin/Dockerfile.vim'
+Plug 'tpope/vim-markdown'
+Plug 'jnwhiteh/vim-golang'
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'cespare/vim-toml'
+Plug 'isRuslan/vim-es6'
 
 " All of your Plugins must be added before the following line
-call vundle#end()           " required
+call plug#end()             " required
 filetype plugin indent on   " required
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -119,9 +120,6 @@ color universe-dark
 
 set fillchars=vert:\│"
 
-" Load the plugin and indent settings for the detected filetype
-filetype plugin indent on
-
 " Disable arrow keys
 nnoremap <up> <nop>
 nnoremap <down> <nop>
@@ -179,7 +177,8 @@ set mouse=
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Automatically reload vimrc when it's saved
-au BufWritePost .vimrc so ~/.vimrc
+"au BufWritePost .vimrc so ~/.vimrc
+"au BufWritePost init.vim so ~/.vimrc
 
 " Remember last location in file
 if has("autocmd")
@@ -215,9 +214,6 @@ let g:ctrlp_custom_ignore = {
   \ }
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
-" ZoomWin configuration
-map <Leader>z :ZoomWin<CR>
-
 " Airline config
 let g:airline_powerline_fonts=1
 set noshowmode
@@ -228,6 +224,17 @@ let g:syntastic_auto_loc_list=1
 let g:syntastic_loc_list_height=5
 
 let g:syntastic_ruby_checkers=['rubocop', 'mri']
+
+" Deoplete config
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources={}
+let g:deoplete#sources._ = ['buffer', 'file']
+let g:deoplete#sources.ruby = ['buffer', 'member', 'file']
+let g:deoplete#sources.vim = ['buffer', 'member', 'file']
+let g:deoplete#sources['javascript.jsx'] = ['buffer', 'member', 'file']
+let g:deoplete#sources.css = ['buffer', 'member', 'omni', 'file']
+let g:deoplete#sources.scss = ['buffer', 'member', 'omni', 'file']
+let g:deoplete#sources.html = ['buffer', 'member', 'omni', 'file']
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
