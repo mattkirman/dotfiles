@@ -78,7 +78,6 @@ set -g pane-base-index 1
 # Status bar
 set -g status on
 set -g status-interval 2
-set -g status-utf8 on
 set -g status-justify "centre"
 
 set -g status-left-length 30
