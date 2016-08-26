@@ -37,6 +37,9 @@ Plug 'mustache/vim-mustache-handlebars'
 Plug 'cespare/vim-toml'
 Plug 'isRuslan/vim-es6'
 
+" Deoplete sources
+Plug 'zchee/deoplete-go', { 'do': 'make' }
+
 " All of your Plugins must be added before the following line
 call plug#end()             " required
 filetype plugin indent on   " required
@@ -181,10 +184,11 @@ set mouse=
 "au BufWritePost init.vim so ~/.vimrc
 
 " Remember last location in file
-if has("autocmd")
-  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
-    \| exe "normal g'\"" | endif
-endif
+au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+  \| exe "normal g'\"" | endif
+
+" Automatically resize splits when Vim is resized
+au VimResized * wincmd =
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -236,6 +240,9 @@ let g:deoplete#sources['javascript.jsx'] = ['buffer', 'member', 'file']
 let g:deoplete#sources.css = ['buffer', 'member', 'omni', 'file']
 let g:deoplete#sources.scss = ['buffer', 'member', 'omni', 'file']
 let g:deoplete#sources.html = ['buffer', 'member', 'omni', 'file']
+let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
+let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+let g:deoplete#sources.go = ['go']
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
