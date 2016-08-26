@@ -213,10 +213,15 @@ map <Leader>n :NERDTreeToggle<CR>
 let g:ctrlp_match_window='order:ttb'
 nmap <Leader>t :CtrlP<CR>
 nmap <Leader>T :CtrlPClearCache<CR>
-let g:ctrlp_custom_ignore = {
-  \ 'dir': 'doc\|log\|spec/reports\|tmp\|vendor/ruby',
-  \ }
-let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+
+if executable("ag")
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files.
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  let g:ctrlp_use_caching = 0
+endif
 
 " Airline config
 let g:airline_powerline_fonts=1
