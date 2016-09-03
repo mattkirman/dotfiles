@@ -173,6 +173,9 @@ tnoremap <C-l> <C-\><C-n><C-w>l
 " Normal mode: <Leader>e
 map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
+" Shortcuts to manage location/quickfix lists
+map <leader>c :lclose<CR>
+
 " Disable mouse support in Terminal (enable mouse support if required in
 " gvimrc).
 set mouse=
