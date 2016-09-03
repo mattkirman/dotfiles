@@ -1,6 +1,6 @@
 require 'rake'
 
-desc "Hook our dotfiles into system-standard positions."
+desc 'Hook our dotfiles into system-standard positions.'
 task :install do
   linkables = Dir.glob('*/**{.symlink}')
 
@@ -13,9 +13,9 @@ task :install do
     backup = false
 
     file = linkable.split('/').last.split('.symlink').last
-    target = "#{ENV["HOME"]}/.#{file}"
+    target = "#{ENV['HOME']}/.#{file}"
 
-    if File.exists?(target) || File.symlink?(target)
+    if File.exist?(target) || File.symlink?(target)
       unless skip_all || overwrite_all || backup_all
         puts "File already exists: #{target}, what do you want to do? [s]kip, [S]kip all, [o]verwrite, [O]verwrite all, [b]ackup, [B]ackup all]"
         case STDIN.gets.chomp
@@ -37,18 +37,16 @@ end
 task :uninstall do
   Dir.glob('**/*.symlink').each do |linkable|
     file = linkable.split('/').last.split('.symlink').last
-    target = "#{ENV["HOME"]}/.#{file}"
+    target = "#{ENV['HOME']}/.#{file}"
 
     # Remove all symlinks created during installation
-    if File.symlink?(target)
-      FileUtils.rm(target)
-    end
+    FileUtils.rm(target) if File.symlink?(target)
 
     # Replace any backups made during installation
-    if File.exists?("#{ENV["HOME"]}/.#{file}.backup")
+    if File.exist?("#{ENV['HOME']}/.#{file}.backup")
       `mv "$HOME/.#{file}.backup" "$HOME/.#{file}"`
     end
   end
 end
 
-task :default => 'install'
+task default: 'install'
