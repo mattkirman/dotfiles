@@ -19,7 +19,8 @@ Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 Plug 'Konfekt/FastFold'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " Buffer management
 Plug 'ctrlpvim/ctrlp.vim'
@@ -39,6 +40,9 @@ Plug 'isRuslan/vim-es6'
 
 " Deoplete sources
 Plug 'zchee/deoplete-go', { 'do': 'make' }
+
+" Colorscheme
+Plug 'rakr/vim-one'
 
 " All of your Plugins must be added before the following line
 call plug#end()             " required
@@ -119,7 +123,8 @@ au FileType python    set noexpandtab
 
 " Default color scheme
 set background=dark
-color universe-dark
+set termguicolors
+color one
 
 set fillchars=vert:\│"
 
@@ -228,6 +233,7 @@ endif
 
 " Airline config
 let g:airline_powerline_fonts=1
+let g:airline_theme='one'
 set noshowmode
 
 " Neomake config

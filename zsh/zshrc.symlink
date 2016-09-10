@@ -36,5 +36,6 @@ if [[ -f /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]
   source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+# Manually set the terminal type (essential for Vim color support to work
+# properly inside Tmux).
+export TERM=xterm-color

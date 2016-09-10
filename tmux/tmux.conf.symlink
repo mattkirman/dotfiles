@@ -1,5 +1,5 @@
 set-option -g default-command "reattach-to-user-namespace -l zsh"
-set -g default-terminal "screen-256color"
+set -g default-terminal "xterm-256color"
 set -g history-limit 8192
 # Use VI
 set-window-option -g mode-keys vi
