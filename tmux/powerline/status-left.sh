@@ -11,8 +11,8 @@ source "${cwd}/lib.sh"
 typeset -A hostname
 hostname=()
 hostname[script]="${segments_path}/hostname.sh"
-hostname[foreground]='colour234'
-hostname[background]='colour148'
+hostname[foreground]='black'
+hostname[background]='blue'
 hostname[separator]="${separator_right_bold}"
 register_segment 'hostname'
 
@@ -20,8 +20,8 @@ register_segment 'hostname'
 #typeset -A whoami
 #whoami=()
 #whoami[script]="${segments_path}/whoami.sh"
-#whoami[foreground]='colour250'
-#whoami[background]='colour238'
+#whoami[foreground]='white'
+#whoami[background]='colour237'
 #whoami[separator]="${separator_right_bold}"
 #register_segment 'whoami'
 

@@ -21,7 +21,7 @@ source "${cwd}/lib.sh"
 #battery=()
 #battery[script]="${segments_path}/battery.sh"
 #battery[foreground]='white'
-#battery[background]='colour234'
+#battery[background]='colour236'
 #battery[separator]="${separator_left_bold}"
 #register_segment 'battery'
 
@@ -29,8 +29,8 @@ source "${cwd}/lib.sh"
 typeset -A date
 date=()
 date[script]="${segments_path}/date.sh"
-date[foreground]='colour0'
-date[background]='colour33'
+date[foreground]='black'
+date[background]='blue'
 date[separator]="${separator_left_bold}"
 register_segment 'date'
 

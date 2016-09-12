@@ -124,6 +124,7 @@ au FileType python    set noexpandtab
 " Default color scheme
 set background=dark
 set termguicolors
+let g:one_allow_italics=1
 color one
 
 set fillchars=vert:\│"

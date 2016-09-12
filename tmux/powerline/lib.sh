@@ -2,10 +2,10 @@ entries=()
 
 if [ "$USE_PATCHED_FONTS" = "true" ]; then
   # Separators (patched font required)
-  separator_left_bold="⮂"
-	separator_left_thin="⮃"
-	separator_right_bold="⮀"
-	separator_right_thin="⮁"
+  separator_left_bold="\ue0b2"
+	separator_left_thin="\ue0b3"
+	separator_right_bold="\ue0b0"
+	separator_right_thin="\ue0b1"
 else
   # Alternative separators in the normal unicode table
   separator_left_bold="◀"
@@ -23,7 +23,7 @@ register_segment() {
 #
 first_segment_left=1
 print_status_line_left() {
-  prev_bg='colour234'
+  prev_bg='black'
   for entry in $entries; do
     local script=$(eval "echo \${${entry}[script]}")
     local foreground=$(eval "echo \${${entry}[foreground]}")
@@ -47,7 +47,7 @@ print_status_line_left() {
 			first_segment_left=0
 		fi
   done
-  __ui_left "colour235" "colour234" "red" "$separator_right_bold" "$prev_bg"
+  __ui_left "black" "black" "red" "$separator_right_bold" "$prev_bg"
 
   # End in a clean state
   echo "#[default]"
@@ -55,7 +55,7 @@ print_status_line_left() {
 
 #
 print_status_line_right() {
-  local prev_bg="colour234"
+  local prev_bg="black"
 	for entry in $entries; do
 		local script=$(eval "echo \${${entry}[script]}")
 		local foreground=$(eval "echo \${${entry}[foreground]}")

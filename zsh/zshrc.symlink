@@ -38,4 +38,4 @@ fi
 
 # Manually set the terminal type (essential for Vim color support to work
 # properly inside Tmux).
-export TERM=xterm-color
+export TERM=xterm-256color
