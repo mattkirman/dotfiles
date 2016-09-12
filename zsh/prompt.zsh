@@ -39,18 +39,11 @@ function elapsed_time {
 }
 
 function timestamp {
-  echo -n " %{$fg[cyan]%}$(date +"%H:%M:%S")%{$reset_color%}"
-}
-
-function non_tmux_space {
-  if [ -z "$TMUX" ]; then
-    echo ' '
-  fi
+  #echo -n " %{$fg[blue]%}$(date +"%H:%M:%S")%{$reset_color%}"
 }
 
 PROMPT='%{$fg[blue]%}%c%{$reset_color%} $(git_prompt_info)→%{$reset_color%} $(non_tmux_space)'
 RPROMPT='$(return_code)%{$reset_color%}$(elapsed_time)$(timestamp)'
-ZLE_RPROMPT_INDENT=0
 
 if [[ $EUID -eq 0 ]]
 then
