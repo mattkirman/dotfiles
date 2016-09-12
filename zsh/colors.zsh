@@ -1,8 +1,6 @@
-# ls colors
-autoload colors; colors;
+autoload -U colors; colors;
 export LSCOLORS="Gxfxcxdxbxegedabagacad"
 
-# Enable ls colors
 if [ "$DISABLE_LS_COLORS" != "true" ]
 then
   # Find the option for using colors in ls, depending on the version: Linux or BSD
@@ -18,7 +16,8 @@ fi
 #setopt no_beep
 setopt auto_cd
 setopt multios
-setopt cdablevarS
+setopt cdablevars
+setopt promptsubst
 
 if [[ x$WINDOW != x ]]
 then
@@ -26,6 +25,3 @@ then
 else
     SCREEN_NO=""
 fi
-
-# Setup the prompt with pretty colors
-setopt prompt_subst
