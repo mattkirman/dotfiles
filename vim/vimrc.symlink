@@ -127,6 +127,9 @@ set termguicolors
 let g:one_allow_italics=1
 color one
 
+" Completion options should only use menus
+set completeopt=menu
+
 set fillchars=vert:\│"
 
 " Disable arrow keys
