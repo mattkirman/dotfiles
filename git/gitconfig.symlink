@@ -1,7 +1,7 @@
 [user]
   email = matt@mattkirman.com
   name = Matt Kirman
-  signingkey = C23874CF
+	signingkey = DF5BCC334862EF83
 
 [alias]
   count = !git shortlog -sn
@@ -38,3 +38,5 @@
 	smudge = git-lfs smudge %f
 	required = true
 	clean = git-lfs clean %f
+[commit]
+	gpgsign = true
