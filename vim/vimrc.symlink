@@ -42,7 +42,7 @@ Plug 'isRuslan/vim-es6'
 Plug 'zchee/deoplete-go', { 'do': 'make' }
 
 " Colorscheme
-Plug 'rakr/vim-one'
+Plug 'morhetz/gruvbox'
 
 " All of your Plugins must be added before the following line
 call plug#end()             " required
@@ -76,6 +76,7 @@ set modelines=4
 
 " Line numbers
 set rnu
+set number
 set ruler
 set cursorline
 syntax on
@@ -124,13 +125,27 @@ au FileType python    set noexpandtab
 " Default color scheme
 set background=dark
 set termguicolors
-let g:one_allow_italics=1
-color one
+color gruvbox
+
+hi Normal ctermbg=NONE
+hi vertsplit ctermfg=238 ctermbg=235
+hi LineNr ctermfg=237
+hi StatusLine ctermfg=235 ctermbg=245
+hi StatusLineNC ctermfg=235 ctermbg=237
+hi Search ctermbg=58 ctermfg=15
+hi Default ctermfg=1
+hi clear SignColumn
+hi SignColumn ctermbg=235
+hi GitGutterAdd ctermbg=235 ctermfg=245
+hi GitGutterChange ctermbg=235 ctermfg=245
+hi GitGutterDelete ctermbg=235 ctermfg=245
+hi GitGutterChangeDelete ctermbg=235 ctermfg=245
+hi EndOfBuffer ctermfg=237 ctermbg=235
 
 " Completion options should only use menus
 set completeopt=menu
 
-set fillchars=vert:\│"
+set fillchars=vert:\ ,stl:\ ,stlnc:\
 
 " Disable arrow keys
 nnoremap <up> <nop>
@@ -237,7 +252,7 @@ endif
 
 " Airline config
 let g:airline_powerline_fonts=1
-let g:airline_theme='one'
+let g:airline_theme='gruvbox'
 set noshowmode
 
 " Neomake config

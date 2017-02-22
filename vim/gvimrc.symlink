@@ -1,8 +1,8 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MacVim overrides.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-color codeschool
-set guifont=Office\ Code\ Pro:h12
+set background=dark
+color one
 
 " Set a default window size
 set lines=40 columns=140
@@ -87,4 +87,4 @@ function! DistractionFreeWriting()
   endif
 endfunction
 
-au BufNewFile,BufRead *.{md,mdown,mkd,mkdn,markdown,mdwn} call DistractionFreeWriting()
+"au BufNewFile,BufRead *.{md,mdown,mkd,mkdn,markdown,mdwn} call DistractionFreeWriting()
