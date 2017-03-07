@@ -137,7 +137,7 @@ hi Normal guibg=#212121
 " Completion options should only use menus
 set completeopt=menu
 
-set fillchars=vert:\ ,stl:\ ,stlnc:\
+set fillchars=vert:\ ,stl:\ ,stlnc:\  
 
 " Disable arrow keys
 nnoremap <up> <nop>
