@@ -39,6 +39,9 @@ Plug 'cespare/vim-toml'
 Plug 'isRuslan/vim-es6'
 Plug 'jparise/vim-graphql'
 
+" Debugging
+Plug 'sebdah/vim-delve'
+
 " Deoplete sources
 Plug 'zchee/deoplete-go', { 'do': 'make' }
 
@@ -252,7 +255,7 @@ autocmd! BufReadPost,BufWritePost * Neomake
 let g:neomake_open_list=2
 let g:neomake_list_height=5
 
-let g:neomake_ruby_enabled_makers = ['rubocop', 'reek']
+let g:neomake_ruby_enabled_makers = ['rubocop']
 
 " Deoplete config
 let g:deoplete#enable_at_startup = 1
