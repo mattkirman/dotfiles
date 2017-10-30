@@ -9,13 +9,10 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
 call plug#begin()
 
-function! DoRemote(arg)
-  UpdateRemotePlugins
-endfunction
-
 " General
 Plug 'tpope/vim-surround'
-Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/echodoc.vim'
 Plug 'Konfekt/FastFold'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
@@ -30,7 +27,6 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'neomake/neomake'
 Plug 'kchmck/vim-coffee-script'
 Plug 'tpope/vim-rails'
-Plug 'rodjek/vim-puppet'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'tpope/vim-markdown'
 Plug 'fatih/vim-go'
@@ -38,13 +34,14 @@ Plug 'mustache/vim-mustache-handlebars'
 Plug 'cespare/vim-toml'
 Plug 'isRuslan/vim-es6'
 Plug 'jparise/vim-graphql'
-Plug 'leafgarland/typescript-vim'
+Plug 'HerringtonDarkholme/yats.vim'
 
 " Debugging
 Plug 'sebdah/vim-delve'
 
 " Deoplete sources
 Plug 'zchee/deoplete-go', { 'do': 'make' }
+Plug 'mhartington/nvim-typescript'
 
 " Colorscheme
 Plug 'rakr/vim-one'
@@ -70,6 +67,7 @@ set clipboard=unnamed
 set timeoutlen=500
 set foldmethod=syntax
 set nofoldenable
+set shortmess+=c
 
 " Directories for swp files
 set backupdir=~/.vim/backup
@@ -140,6 +138,7 @@ hi Normal guibg=#212121
 
 " Completion options should only use menus
 set completeopt=menu
+set completeopt+=noinsert
 
 set fillchars=vert:\ ,stl:\ ,stlnc:\  
 
@@ -244,7 +243,7 @@ if executable("ag")
   set grepprg=ag\ --nogroup\ --nocolor
 
   " Use ag in CtrlP for listing files.
-	let g:ctrlp_user_command = 'ag %s -l --ignore vendor --nocolor -g ""'
+  let g:ctrlp_user_command = 'ag %s -l --ignore vendor --nocolor -g ""'
   let g:ctrlp_use_caching = 0
 endif
 
@@ -260,10 +259,13 @@ let g:neomake_list_height=5
 
 let g:neomake_ruby_enabled_makers = ['rubocop']
 
+" echodoc config
+let g:echodoc#enable_at_startup = 1
+
 " Deoplete config
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources={}
-let g:deoplete#sources._ = ['buffer', 'file']
+"let g:deoplete#sources._ = ['buffer', 'file']
 let g:deoplete#sources.ruby = ['buffer', 'member', 'file']
 let g:deoplete#sources.vim = ['buffer', 'member', 'file']
 let g:deoplete#sources['javascript.jsx'] = ['buffer', 'member', 'file']
