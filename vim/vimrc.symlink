@@ -149,8 +149,10 @@ nnoremap <left> <nop>
 nnoremap <right> <nop>
 
 " Move by screen line, not file line
-nnoremap j gj
-nnoremap k gk
+" Commands prefixed with a count (e.g. 5j) will still behave correctly. Jumps
+" larger than 5 lines will automatically be recorded to the jumplist.
+nnoremap <expr> j v:count ? (v:count > 5 ? "m'" . v:count : '') . 'j' : 'gj'
+nnoremap <expr> k v:count ? (v:count > 5 ? "m'" . v:count : '') . 'k' : 'gk'
 
 " Quick escapes
 inoremap jj <Esc>
