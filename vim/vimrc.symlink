@@ -34,7 +34,8 @@ Plug 'mustache/vim-mustache-handlebars'
 Plug 'cespare/vim-toml'
 Plug 'isRuslan/vim-es6'
 Plug 'jparise/vim-graphql'
-Plug 'HerringtonDarkholme/yats.vim'
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
 
 " Debugging
 Plug 'sebdah/vim-delve'
