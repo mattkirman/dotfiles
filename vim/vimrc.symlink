@@ -41,8 +41,8 @@ Plug 'peitalin/vim-jsx-typescript'
 Plug 'sebdah/vim-delve'
 
 " Deoplete sources
-Plug 'zchee/deoplete-go', { 'do': 'make' }
 Plug 'mhartington/nvim-typescript'
+Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
 
 " Colorscheme
 Plug 'rakr/vim-one'
@@ -265,19 +265,17 @@ let g:neomake_ruby_enabled_makers = ['rubocop']
 " echodoc config
 let g:echodoc#enable_at_startup = 1
 
+" Langserver config
+let g:LanguageClient_serverCommands = {
+      \ 'go': ['go-langserver', '-gocodecompletion'],
+      \ 'javascript': ['javascript-typescript-stdio'],
+      \ 'typescript': ['javascript-typescript-stdio'],
+      \ }
+
 " Deoplete config
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources={}
+"let g:deoplete#sources={}
 "let g:deoplete#sources._ = ['buffer', 'file']
-let g:deoplete#sources.ruby = ['buffer', 'member', 'file']
-let g:deoplete#sources.vim = ['buffer', 'member', 'file']
-let g:deoplete#sources['javascript.jsx'] = ['buffer', 'member', 'file']
-let g:deoplete#sources.css = ['buffer', 'member', 'omni', 'file']
-let g:deoplete#sources.scss = ['buffer', 'member', 'omni', 'file']
-let g:deoplete#sources.html = ['buffer', 'member', 'omni', 'file']
-let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
-let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
-let g:deoplete#sources.go = ['go']
 
 " vim-go config
 let g:go_fmt_command = "goimports"
