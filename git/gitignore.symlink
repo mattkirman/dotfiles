@@ -1,7 +1,6 @@
 .DS_Store
-.svn
 .vagrant
 *~
-*un~
 *.swp
 Session.vim
+.vscode
