@@ -28,6 +28,7 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 if [[ -f $DOTFILES_DIR/**/completion.sh ]]; then
   for config_file ($DOTFILES_DIR/**/completion.sh) source $config_file
 fi
+compinit
 
 # Prefer scripts in the local ./bin path rather than globals.
 # This works really nicely when using binstubs in your projects.
@@ -36,6 +37,11 @@ export PATH=./bin:$PATH
 # Include ZSH Syntax Highlighting if installed with Homebrew.
 if [[ -f /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
   source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+
+# Include ZSH autosuggestions if installed with Homebrew.
+if [[ -f /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
+  source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi
 
 # Manually set the terminal type (essential for Vim color support to work
