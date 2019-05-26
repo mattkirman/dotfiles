@@ -18,13 +18,13 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'w0rp/ale'
 
 " Buffer management
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
 " Syntax
-Plug 'neomake/neomake'
 Plug 'kchmck/vim-coffee-script'
 Plug 'tpope/vim-rails'
 Plug 'ekalinin/Dockerfile.vim'
@@ -253,32 +253,39 @@ endif
 " Airline config
 let g:airline_powerline_fonts=1
 let g:airline_theme='one'
+let g:airline#extensions#ale#enabled = 1
 set noshowmode
 
-" Neomake config
-autocmd! BufReadPost,BufWritePost * Neomake
-let g:neomake_open_list=2
-let g:neomake_list_height=5
-
-let g:neomake_ruby_enabled_makers = ['rubocop']
+" ALE config
+let g:ale_sign_error = '✖'
+let g:ale_sign_warning = '‼'
+let g:ale_echo_msg_format = '[%linter%] %s'
+let g:ale_open_list = 1
+let g:ale_list_window_size = 5
+let g:ale_linters = {
+      \ 'go': ['gofmt', 'golint', 'gopls', 'go vet'],
+      \}
 
 " echodoc config
 let g:echodoc#enable_at_startup = 1
 
 " Langserver config
 let g:LanguageClient_serverCommands = {
-      \ 'go': ['go-langserver', '-gocodecompletion'],
+      \ 'go': ['gopls'],
       \ 'javascript': ['javascript-typescript-stdio'],
       \ 'typescript': ['javascript-typescript-stdio'],
       \ }
 
 " Deoplete config
 let g:deoplete#enable_at_startup = 1
-"let g:deoplete#sources={}
-"let g:deoplete#sources._ = ['buffer', 'file']
+call deoplete#custom#option('sources', {
+      \ 'go': ['LanguageClient'],
+      \})
 
 " vim-go config
 let g:go_fmt_command = "goimports"
+let g:go_def_mode = 'gopls'
+let g:go_info_mode = 'gopls'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
