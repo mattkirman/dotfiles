@@ -80,16 +80,16 @@ set-option -g status-left " "
 set-option -g status-right " "
 
 set-option -g status-fg white
-set-option -g status-bg "#242424"
+set-option -g status-bg "#212121"
 
 set-option -g message-fg white
-set-option -g message-bg "#242424"
+set-option -g message-bg "#212121"
 
 set-window-option -g window-status-fg "#8f96a1"
-set-window-option -g window-status-bg "#242424"
+set-window-option -g window-status-bg "#212121"
 
 set-window-option -g window-status-current-fg cyan
-set-window-option -g window-status-current-bg "#242424"
+set-window-option -g window-status-current-bg "#212121"
 
 set-window-option -g clock-mode-colour green
 
