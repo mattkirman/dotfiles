@@ -79,17 +79,10 @@ set-option -g status-justify "centre"
 set-option -g status-left " "
 set-option -g status-right " "
 
-set-option -g status-fg white
-set-option -g status-bg "#212121"
-
-set-option -g message-fg white
-set-option -g message-bg "#212121"
-
-set-window-option -g window-status-fg "#8f96a1"
-set-window-option -g window-status-bg "#212121"
-
-set-window-option -g window-status-current-fg cyan
-set-window-option -g window-status-current-bg "#212121"
+set -g status-style fg=white,bg="#212121"
+set -g message-style fg=white,bg="#212121"
+set -g window-status-style fg="#8f96a1",bg="#212121"
+set -g window-status-current-style fg=cyan,bg="#212121"
 
 set-window-option -g clock-mode-colour green
 
