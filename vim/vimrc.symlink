@@ -254,9 +254,28 @@ endif
 let g:airline_powerline_fonts=1
 let g:airline_theme='one'
 let g:airline#extensions#ale#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_splits = 0
+let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+nmap <leader>nt :tabnew<CR>
+nmap <leader>1 <Plug>AirlineSelectTab1
+nmap <leader>2 <Plug>AirlineSelectTab2
+nmap <leader>3 <Plug>AirlineSelectTab3
+nmap <leader>4 <Plug>AirlineSelectTab4
+nmap <leader>5 <Plug>AirlineSelectTab5
+nmap <leader>6 <Plug>AirlineSelectTab6
+nmap <leader>7 <Plug>AirlineSelectTab7
+nmap <leader>8 <Plug>AirlineSelectTab8
+nmap <leader>9 <Plug>AirlineSelectTab9
+let g:airline#extensions#tabline#tab_nr_type = 1
+let g:airline#extensions#tabline#show_tab_type = 0
+let g:airline#extensions#tabline#tab_min_count = 2
+let g:airline#extensions#tabline#show_close_button = 0
 set noshowmode
 
 " ALE config
+let g:ale_lint_on_text_changed = 'never'
 let g:ale_sign_error = '✖'
 let g:ale_sign_warning = '‼'
 let g:ale_echo_msg_format = '[%linter%] %s'
@@ -293,3 +312,5 @@ let g:go_info_mode = 'gopls'
 if filereadable("~/.vimrc.local")
   so ~/.vimrc.local
 endif
+
+au vimLeave * set guicursor=a:ver100-blinkon200
