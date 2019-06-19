@@ -72,12 +72,18 @@ set -g base-index 1
 set -g pane-base-index 1
 
 # Status bar
-set-option -g status on
-set-option -g status-interval 2
-set-option -g status-justify "centre"
+set -g status on
+set -g status-interval 5
+set -g status-justify centre
 
-set-option -g status-left " "
-set-option -g status-right " "
+set -g status-left-length 60
+set -g status-right-length 60
+
+#set -g status-left " #[fg=blue]#H \ue0b0 "
+#set -g status-right " #[fg=colour5]\ue0b2#[bg=colour5,fg=colour235,bold] %H:%M #[default]"
+
+setw -g window-status-format " #[fg=#8f9ca1]#I#[fg=colour8]\ue0b1 #[fg=#8f9ca1]#W#{window_flags} "
+setw -g window-status-current-format "#[fg=colour2,bg=#212121,bold]\ue0b2#[bg=colour2,fg=#212121] #I\ue0b1 #W #[bg=#212121,fg=colour2]\ue0b0"
 
 set -g status-style fg=white,bg="#212121"
 set -g message-style fg=white,bg="#212121"
